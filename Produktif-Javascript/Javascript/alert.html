@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <title>Alert Javascript</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="card col-sm-4">
+                <div class="card-header bg-primary text-white">
+                    <h4>Basic Alert</h4>
+                </div>
+                <div class="card-body">
+                    <button type="button" class="btn btn-success" onclick="alert('Thank you for your click')">
+                        Click on Me
+                    </button>
+                    <button type="button" class="btn btn-info" onmouseover="alert('Thank you for your hover')">
+                        Hover on Me
+                    </button>
+                </div>
+            </div>
+
+            <div class="card col-sm-4">
+                <div class="card-header bg-success text-white">
+                    <h4>Dynamic Alert</h4>
+                </div>
+                <div class="card-body">
+                    <input type="text" id="message" class="from-control">
+                    <button type="button" class="btn btn-success" onclick="alert(document.getElementById('message').value)">
+                        <!--Mengambil isi dari elemen dengan id= "message"-->
+
+                        Show
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

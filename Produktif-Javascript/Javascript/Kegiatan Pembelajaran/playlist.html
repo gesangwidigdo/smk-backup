@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlist</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous">
+    </script>
+    <style type="text/css">
+        #volume{
+            position: absolute;
+            left: 78%;
+        }
+        #decrease, #increase{
+            height: 20px;
+            width: 20px;
+            background-color: royalblue;
+            border: none;
+            outline: none;
+            border-radius: 50%;
+            font-family: fantasy;
+            font-size: 15px;
+            color: white;
+            text-align: center;
+            line-height: 18px;
+            left: -2px;
+            top: 3px;
+            cursor: pointer;
+        }
+        .listMusic{
+            cursor: pointer;
+        }
+    </style>
+    <script type="text/javascript">
+        let songs = ["music/Lucky You.mp3","music/Rap God.mp3","music/Lose Yourself.mp3"];
+        let poster = ["image/kamikaze.jpg","image/rapgod.jpg","image/Lose_Yourself.jpg"];
+
+        let song = new Audio();
+        playSong = () =>{
+            song.play();
+        }
+        pauseSong = () =>{
+            song.pause();
+        }
+        stopSong = () =>{
+            song.currentTime = 0;
+            song.pause();
+        }
+        Song1 = () =>{
+            song.src = songs[0];
+            song.play();
+            $("#gambar img").attr("src",poster[0]);
+        }
+        Song2 = () =>{
+            song.src = songs[1];
+            song.play();
+            $("#gambar img").attr("src",poster[1]);
+        }
+        Song3 = () =>{
+            song.src = songs[2];
+            song.play();
+            $("#gambar img").attr("src",poster[2]);
+        }
+        decreaseVolume = () =>{
+            song.volume -= 0.20;
+        }
+        increaseVolume = () =>{
+            song.volume += 0.20;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 mx-auto">
+                <div class="card col-sm-12">
+                    <div class="card-header bg-info text-white">
+                        <h4>Play List with Javascript</h4>
+                    </div>
+                    <div class="card-body">
+                        <div id="gambar">
+                            <img src="image/music.jpg" class="rounded mx-auto d-block" style="height: 300px; width: 300px;">
+                        </div>
+                        <div class="control">
+                            <div class="audio-control btn-group col-sm" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-warning btn-block" onclick="pauseSong();">Pause</button>
+                                <button type="button" class="btn btn-success btn-block" onclick="playSong();">Play</button>
+                                <button type="button" class="btn btn-danger btn-block" onclick="stopSong();">Stop</button>
+                                </div>
+                        </div>
+                        <br>
+                        <div id="volume">
+                            <button id="decrease" onclick="decreaseVolume();">-</button>
+                            <button id="increase" onclick="increaseVolume();">+</button>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="listMusic">
+                            <div class="list-group">
+                                <a class="list-group-item list-group-item-action" onclick="Song1();">Eminem - Lucky You</a>
+                                <a class="list-group-item list-group-item-action" onclick="Song2();">Eminem - Rap God</a>
+                                <a class="list-group-item list-group-item-action" onclick="Song3();">Eminem - Lose Yourself</a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

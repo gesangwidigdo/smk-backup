@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        Login = () =>{
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+            let element = "";
+
+            if(username == "Gesang" && password == "7947"){
+                element += '<div class="alert alert-success alert-dismissible">';
+                element += '<span class="close" data-dismiss="alert">&times;</span>';
+                element += 'Selamat! Anda Berhasil Login';
+                element += '</div>';
+            }else if(username == "" || password == ""){
+                element += '<div class="alert alert-danger alert-dismissible">';
+                element += '<span class="close" data-dismiss="alert">&times;</span>';
+                element += 'Masukkan data secara lengkap!';
+                element += '</div>'
+            }else{
+                element += '<div class="alert alert-danger alert-dismissible">';
+                element += '<span class="close" data-dismiss="alert">&times;</span>';
+                element += 'Data yang Anda Masukkan Salah!';
+                element += '</div>'
+            }
+            document.getElementById('login-alert').innerHTML += element;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="card col-sm-4 mx-auto">
+            <div class="card-header bg-primary text-white">
+                <h3>Login Form</h3>
+            </div>
+            <br>
+            <div id="login-alert"></div>
+            <div class="card-body" id="login-body">
+                Username
+                <div class="col-sm-12">
+                    <input type="text" id="username" class="form-control">
+                </div>
+                Password
+                <div class="col-sm-12">
+                    <input type="password" id="password" class="form-control">
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="button" class="btn btn-primary btn-blocked btn-block" onclick="Login();">LOGIN</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
